@@ -14,8 +14,4 @@ public class Obstacle : BaseProjectile {
 		
 		
 	}
-
-
-
-
 }

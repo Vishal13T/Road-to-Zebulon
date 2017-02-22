@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Player : Entity {
 	private Vector3 movement;
-
+	public GameObject rightObj;
+	private Holdable rightHand;
 	// Use this for initialization
 	void Start () {
 		Health = 100.0f;
 		Speed = 5.0f;
 		TurnTaken = false;
+		rightHand = rightObj.GetComponent<Holdable> ();
 	}
 	
 	// Update is called once per frame
@@ -26,13 +28,16 @@ public class Player : Entity {
 			Vector3 finMove = Vector3.forward + movement;
 			transform.Translate (finMove * Time.deltaTime * Speed);
 			TurnTaken = false;
-		//This will set the players turn to go left
+			//This will set the players turn to go left
 		} else if (Input.GetKeyDown (KeyCode.F) && !TurnTaken) {
 			movement = Vector3.left / 2;
 			TurnTaken = true;
-		//This will set the players turn to go right
+			//This will set the players turn to go right
 		} else if (Input.GetKeyDown (KeyCode.J) && !TurnTaken) {
 			movement = Vector3.right / 2;
+			TurnTaken = true;
+		} else if (Input.GetKeyDown (KeyCode.L) && !TurnTaken) {
+			rightHand.Action ();
 			TurnTaken = true;
 		}
 	}

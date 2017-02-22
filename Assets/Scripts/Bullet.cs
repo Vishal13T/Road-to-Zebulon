@@ -2,27 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class BaseWeapon : Holdable {
-	private float damage;
+public class Bullet : BaseProjectile {
+	private float time;
 	// Use this for initialization
 	void Start () {
-		
+		time = 5f;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
-
-	public float Damage {
-		get {
-			return damage;
+		time -= Time.deltaTime;
+		if (time <= 0) {
+			Destroy (gameObject);
 		}
-		set {
-			damage = value;
-		}
-	}
-
-	public override void Action() {
 	}
 }

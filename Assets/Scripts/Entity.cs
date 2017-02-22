@@ -4,8 +4,11 @@ using UnityEngine;
 
 public abstract class Entity : MonoBehaviour {
 
+
 	private float health;
+	//Gets the game timer so that all entities will have a reference.
 	public GameObject timer;
+	//Bool so that the entity cannot take more than one move
 	private bool turnTaken;
 	private float speed;
 

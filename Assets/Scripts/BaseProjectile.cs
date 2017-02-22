@@ -13,14 +13,7 @@ public class BaseProjectile : MonoBehaviour {
 	void Update () {
 		
 	}
-
-	void OnTriggerEnter(Collider other) {
-		Entity target = other.GetComponent<Entity> ();
-		if (target != null) {
-			target.Health = target.Health - damage;
-		}
-			
-	}
+		
 
 	public float Damage {
 		get {
@@ -28,6 +21,12 @@ public class BaseProjectile : MonoBehaviour {
 		}
 		set {
 			damage = value;
+		}
+	}
+
+	void OnTriggerEnter(Collider other) {
+		if (other.tag == "Entity") {
+			((Entity)other.GetComponent<Entity>()).Health = ((Entity)other.GetComponent<Entity>()).Health - damage;
 		}
 	}
 }
