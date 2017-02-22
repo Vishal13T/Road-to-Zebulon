@@ -14,6 +14,9 @@ public class Player : Entity {
 	
 	// Update is called once per frame
 	void Update () {
+		if (Health <= 0) {
+			Destroy (gameObject);
+		}
 		// This if will reset all values to the beginning of the turn.
 		if (!checkTime () && !TurnTaken) {
 			movement = new Vector3 (0, 0, 0);
