@@ -25,8 +25,10 @@ public class BaseProjectile : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
-		if (other.tag == "Entity") {
+		if (other.tag == "Entity" && other != gameObject) {
 			((Entity)other.GetComponent<Entity>()).Health = ((Entity)other.GetComponent<Entity>()).Health - damage;
+			Destroy (gameObject);
 		}
+
 	}
 }

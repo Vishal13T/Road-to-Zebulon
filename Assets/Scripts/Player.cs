@@ -6,9 +6,10 @@ public class Player : Entity {
 	private Vector3 movement;
 	public GameObject rightObj;
 	private Holdable rightHand;
+	private float maxHealth = 100.0f;
 	// Use this for initialization
 	void Start () {
-		Health = 100.0f;
+		Health = maxHealth;
 		Speed = 5.0f;
 		TurnTaken = false;
 		rightHand = rightObj.GetComponent<Holdable> ();

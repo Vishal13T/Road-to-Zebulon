@@ -15,6 +15,6 @@ public class Bullet : BaseProjectile {
 		if (time <= 0) {
 			Destroy (gameObject);
 		}
-		transform.Translate (Vector3.forward * Time.deltaTime * 1000f);
+		transform.Translate (Vector3.forward * Time.deltaTime * 100f);
 	}
 }
